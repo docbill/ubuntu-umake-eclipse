@@ -23,4 +23,3 @@ then
 fi 
 
 exec sudo -u u$XUID-$XGID /opt/eclipse/eclipse "$@"
-

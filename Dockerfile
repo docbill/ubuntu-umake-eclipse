@@ -1,12 +1,5 @@
-FROM ubuntu:14.04
+FROM docbill/ubuntu-umake
 MAINTAINER Bill C Riemers https://github.com/docbill
-
-RUN apt-get update -y && \
-	apt-get install -y software-properties-common python-software-properties && \
-	add-apt-repository ppa:ubuntu-desktop/ubuntu-make && \
-	apt-get update -y && \
-	apt-get install -y ubuntu-make && \
-	apt-get clean -y all
 
 RUN ((echo "/opt/eclipse";echo "")|umake -v ide eclipse)
 
