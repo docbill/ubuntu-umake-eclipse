@@ -1,4 +1,4 @@
-# docker-force
+# ubuntu-umake-eclipse
 A docker container to eclipse in ubuntu with the specified workspace.
 
 ## Overview

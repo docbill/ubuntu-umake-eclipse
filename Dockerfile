@@ -10,6 +10,7 @@ RUN apt-get update -y && \
 
 RUN ((echo "/opt/eclipse";echo "")|umake -v ide eclipse)
 
+# Add the dockerfile to make rebuilds from the image easier
 ADD Dockerfile /Dockerfile
 ADD eclipse.sh /root/eclipse
 
