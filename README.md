@@ -18,11 +18,12 @@ If you have already have docker working you can start eclipse as easily as:
 
 	[ -d ~/workspace ] || mkdir ~/workspace
 	xhost local:root
-	sudo docker run -i --net=host --rm -e DISPLAY -v $HOME/workspace/:/workspace/ docbill ubuntu-umake-eclipse
+	docker run -i --net=host --rm -e DISPLAY -v $HOME/workspace/:/workspace/:z docbill ubuntu-umake-eclipse
 
 
 The first time you run this command it will download the image.
- 
+
+If the :z flag is not recognized try the same command without that flag. 
 
 If you wish to install the Force.com IDE, follow the instructions at:
 
