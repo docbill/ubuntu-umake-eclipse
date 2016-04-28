@@ -1,4 +1,4 @@
-FROM docbill/ubuntu-umake:14.04
+FROM docbill/ubuntu-umake
 MAINTAINER Bill C Riemers https://github.com/docbill
 
 RUN ((echo "/opt/eclipse";echo "")|umake -v ide eclipse)
