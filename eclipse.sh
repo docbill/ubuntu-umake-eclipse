@@ -11,10 +11,10 @@ values=( $(stat -c '%g %u' /workspace) )
 XGID=${values[0]}
 XUID=${values[1]}
 
-groupadd -g $XGID g$XGID 2>>/dev/null || true
+groupadd -f -g $XGID g$XGID 2>>/dev/null || true
 useradd -u $XUID -g g$XGID -d /workspace u$XUID-$XGID 2>>/dev/null || usermod -u $XUID -g g$XGID u$XUID-$XGID 2>>/dev/null
 
-[ -d /workspace/workspace ] || sudo -u u$XUID-$XGID ln -s . /workspace/workspace
+[ -d /workspace/workspace ] || sudo -u u$XUID-$XGID ln -s . /workspace/workspace || true
 
 # Hook to allow pre-installed software
 if [ -d /opt/eclipse.home -a ! -d /workspace/.eclipse ]
