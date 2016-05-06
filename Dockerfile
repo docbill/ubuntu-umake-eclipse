@@ -5,13 +5,12 @@ RUN ((echo "/opt/eclipse";echo "")|umake -v ide eclipse)
 
 # Add the dockerfile to make rebuilds from the image easier
 ADD Dockerfile /Dockerfile
-ADD eclipse.sh /root/eclipse
+ADD eclipse-wrapper /usr/bin/eclipse-wrapper
 
-RUN chmod 500 /root/eclipse
+RUN chmod 555 /usr/bin/eclipse-wrapper
 
 VOLUME /workspace
-ENV HOME /workspace
 WORKDIR /workspace
 
-ENTRYPOINT ["/root/eclipse"]
+ENTRYPOINT ["/usr/bin/eclipse-wrapper"]
 
