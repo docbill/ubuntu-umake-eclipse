@@ -1,5 +1,5 @@
 #!/bin/bash
 xhost local:root
 [ -d "$HOME/workspace" ] || mkdir "$HOME/workspace"
-exec docker run -i --net=host --rm -e "DISPLAY=$DISPLAY" -e "USER=$USER" -v "$HOME/workspace/:/workspace/:z" docbill/ubuntu-umake-eclipse:14.04 "$@"
+exec docker run -t -i --net=host --rm -e "DISPLAY=$DISPLAY" -e "USER=$USER" -v "$HOME/workspace/:/workspace/:z" docbill/ubuntu-umake-eclipse:14.04 "$@"
 

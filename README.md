@@ -18,12 +18,21 @@ If you have already have docker working you can start eclipse as easily as:
 
 	[ -d ~/workspace ] || mkdir ~/workspace
 	xhost local:root
-	docker run -i --net=host --rm -e DISPLAY -v $HOME/workspace/:/workspace/:z docbill ubuntu-umake-eclipse
+	docker run -i --net=host --rm -e DISPLAY -v $HOME/workspace/:/workspace/:z docbill/ubuntu-umake-eclipse:14.04
+
+For windows this was a bit more complicated.  I had to make sure Xwin (from
+cygwin) was started with the -listen tcp option, and that security was 
+disabled.  Once that was done the following command worked:
+
+	docker run -i --rm -e DISPLAY=172.31.253.119:0 -v /d/cygwin64/home/docbi/workspace/:/workspace/:z docbill/ubuntu-umake-eclipse:14.04
+
+Where my ip address is 172.31.253.119, and the folder I wanted the workspace in
+was D:\cygwin64\home\docbi\workspace\
 
 
 The first time you run this command it will download the image.
 
-If the :z flag is not recoginized then try the same commands without the :z flag. 
+If the :z flag is not recognized try the same command without that flag. 
 
 If you wish to install the Force.com IDE, follow the instructions at:
 
